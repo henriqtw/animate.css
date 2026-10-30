@@ -224,7 +224,7 @@ const ETAPAS = [
     c:
       topo(true) +
       `
-  <h1>Olá, banca!</h1>
+  <h1>Olá, mundo!</h1>
 </body>
 </html>`,
   },
@@ -234,7 +234,7 @@ const ETAPAS = [
     c:
       topo(false) +
       `
-§  <h1 class="animate__animated animate__bounce">Olá, banca!</h1>
+§  <h1 class="animate__animated animate__bounce">Olá, mundo!</h1>
 </body>
 </html>`,
   },
@@ -244,7 +244,7 @@ const ETAPAS = [
     c:
       topo(false) +
       `
-§  <h1 class="animate__animated animate__tada">Olá, banca!</h1>
+§  <h1 class="animate__animated animate__tada">Olá, mundo!</h1>
 §  <p class="animate__animated animate__fadeInUp">Esta animação entra de baixo.</p>
 </body>
 </html>`,
@@ -256,7 +256,7 @@ const ETAPAS = [
       topo(false) +
       `
 §  <h1 class="animate__animated animate__tada animate__repeat-2"
-§      style="--animate-duration: 2s">Olá, banca!</h1>
+§      style="--animate-duration: 2s">Olá, mundo!</h1>
 §  <p class="animate__animated animate__fadeInUp animate__delay-2s">Esta entra 2s depois.</p>
 </body>
 </html>`,
@@ -267,7 +267,7 @@ const ETAPAS = [
     c:
       topo(false) +
       `
-  <h1 id="titulo">Olá, banca!</h1>
+  <h1 id="titulo">Olá, mundo!</h1>
 §  <button id="btn">Animar</button>
 §  <script>
 §    const titulo = document.getElementById('titulo');
@@ -287,7 +287,7 @@ const ETAPAS = [
     c:
       topo(false) +
       `
-  <h1 id="titulo">Olá, banca!</h1>
+  <h1 id="titulo">Olá, mundo!</h1>
   <button id="btn">Animar</button>
   <script>
 §    const animar = (el, nome) => new Promise(ok => {
@@ -468,6 +468,300 @@ window.addEventListener("load", () => {
       entradaTitulo("backInDown");
       tocar();
       rodarPrevia();
+      atualizarNota();
     };
   }
 });
+
+/* ===== Mini jogo ===== */
+const PERGUNTAS = [
+  {
+    p: "Quais são as duas classes que toda animação precisa?",
+    o: [
+      "animate__animated + animate__nome",
+      "animate__start + animate__nome",
+      "animate__play + animate__loop",
+      "animate__base + animate__go",
+    ],
+    e: "A base <code>animate__animated</code> liga o motor e a segunda escolhe a animação.",
+  },
+  {
+    p: "Qual evento JavaScript avisa que a animação terminou?",
+    o: ["animationend", "animationstop", "transitionend", "onfinish"],
+    e: "É o <code>animationend</code>, ideal para remover as classes ou encadear a próxima animação.",
+  },
+  {
+    p: "Como fazer uma animação repetir para sempre?",
+    o: [
+      "animate__infinite",
+      "animate__forever",
+      "animate__loop",
+      "animate__repeat-all",
+    ],
+    e: "A classe <code>animate__infinite</code> deixa a animação em loop.",
+  },
+  {
+    p: "Qual variável CSS muda a duração de uma animação?",
+    o: [
+      "--animate-duration",
+      "--animation-time",
+      "--animate-speed",
+      "--duration-animate",
+    ],
+    e: "Use <code>--animate-duration</code>, direto no style do elemento.",
+  },
+  {
+    p: "Qual classe faz a animação começar só depois de 2 segundos?",
+    o: [
+      "animate__delay-2s",
+      "animate__wait-2s",
+      "animate__after-2s",
+      "animate__later-2s",
+    ],
+    e: "As classes <code>animate__delay-1s</code> a <code>5s</code> controlam o atraso.",
+  },
+  {
+    p: "Como instalar o animate.css sem baixar nada?",
+    o: [
+      "Com um link de CDN no <head>",
+      "Só com npm install",
+      "Copiando o JavaScript da biblioteca",
+      "Não existe como usar sem baixar",
+    ],
+    e: "Um <code>&lt;link&gt;</code> da CDN no <code>&lt;head&gt;</code> já basta.",
+  },
+  {
+    p: "Qual animação combina com um erro de formulário?",
+    o: ["shakeX", "fadeInUp", "zoomIn", "backInRight"],
+    e: "O <code>shakeX</code> balança de um lado para o outro, como um “não” com a cabeça.",
+  },
+  {
+    p: "Qual é o prefixo das classes na versão 4 do animate.css?",
+    o: ["animate__", "anim-", "ac-", "animated-"],
+    e: "Desde a v4 todas as classes começam com <code>animate__</code>.",
+  },
+  {
+    p: "O que a função animar() devolve para permitir o uso de await?",
+    o: ["Uma Promise", "Um número", "Um array", "Um evento"],
+    e: "Com uma <code>Promise</code> resolvida no animationend, o await espera a animação acabar.",
+  },
+  {
+    p: "Qual classe deixa a animação mais lenta?",
+    o: ["animate__slow", "animate__long", "animate__easy", "animate__soft"],
+    e: "Existem <code>animate__slow</code>, <code>slower</code>, <code>fast</code> e <code>faster</code>.",
+  },
+  {
+    p: "O que o animate.css faz quando o sistema pede movimento reduzido?",
+    o: [
+      "Encurta as animações para quase nada",
+      "Troca por animações mais suaves",
+      "Nada, ignora a configuração",
+      "Bloqueia o carregamento da página",
+    ],
+    e: "Com <code>prefers-reduced-motion</code> as animações duram 1 milissegundo.",
+  },
+  {
+    p: "Para uma animação de saída, qual par de classes está certo?",
+    o: [
+      "animate__animated animate__fadeOut",
+      "animate__out animate__fade",
+      "animate__animated animate__exit",
+      "animate__leave animate__fade",
+    ],
+    e: "As saídas terminam em <code>Out</code>, como <code>fadeOut</code> e <code>bounceOut</code>.",
+  },
+];
+const TOTAL = 8,
+  TEMPO = 15;
+let jogo = null;
+const emb = (a) => {
+  for (let i = a.length - 1; i > 0; i--) {
+    const k = Math.floor(Math.random() * (i + 1));
+    [a[i], a[k]] = [a[k], a[i]];
+  }
+  return a;
+};
+const movimentoOk = () =>
+  !reduz || document.documentElement.classList.contains("forcar");
+function atualizarNota() {
+  $("jNota").hidden = movimentoOk();
+}
+function recorde() {
+  try {
+    return +localStorage.getItem("animate-recorde") || 0;
+  } catch (e) {
+    return 0;
+  }
+}
+function salvarRecorde(v) {
+  try {
+    localStorage.setItem("animate-recorde", v);
+  } catch (e) {}
+}
+function textoRecorde() {
+  const r = recorde();
+  return r ? "Seu recorde: " + r + " pontos" : "";
+}
+function mostrarTela(id) {
+  ["telaIni", "telaJogo", "telaFim"].forEach((t) => ($(t).hidden = t !== id));
+  animar($(id), "fadeIn");
+}
+function montarRodada() {
+  const txt = emb(
+    PERGUNTAS.map((q) => ({
+      tipo: "txt",
+      p: q.p,
+      certa: q.o[0],
+      opcoes: emb([...q.o]),
+      e: q.e,
+    })),
+  );
+  if (!movimentoOk()) return txt.slice(0, TOTAL);
+  const pares = emb(
+    Object.entries(CATEGORIAS).flatMap(([c, ns]) => ns.map((n) => [c, n])),
+  ).slice(0, TOTAL / 2);
+  const anim = pares.map(([c, n]) => ({
+    tipo: "anim",
+    p: "Que animação é essa?",
+    certa: n,
+    anim: n,
+    opcoes: emb([n, ...emb(CATEGORIAS[c].filter((x) => x !== n)).slice(0, 3)]),
+    e: `Era <code>${n}</code>, da categoria ${c}.`,
+  }));
+  return emb([...anim, ...txt.slice(0, TOTAL / 2)]);
+}
+function iniciar() {
+  jogo = {
+    lista: montarRodada(),
+    i: 0,
+    pts: 0,
+    seq: 0,
+    acertos: 0,
+    resp: false,
+    rel: null,
+  };
+  $("jPts").textContent = 0;
+  $("jSeq").textContent = 0;
+  mostrarTela("telaJogo");
+  mostrarPerg();
+}
+function mostrarPerg() {
+  const q = jogo.lista[jogo.i];
+  jogo.resp = false;
+  $("jN").textContent = jogo.i + 1;
+  $("jPerg").textContent = q.p;
+  $("jPalco").hidden = q.tipo !== "anim";
+  $("jOpc").innerHTML = q.opcoes
+    .map(
+      (o, k) =>
+        `<button class="opc ${q.tipo === "anim" ? "cod" : ""}" type="button" data-k="${k}"><kbd>${k + 1}</kbd><span>${esc(o)}</span></button>`,
+    )
+    .join("");
+  $("jFb").innerHTML = "";
+  $("jProx").hidden = true;
+  animar($("jQuadro"), "fadeInRight");
+  if (q.tipo === "anim")
+    setTimeout(() => {
+      if (jogo && jogo.lista[jogo.i] === q) animar($("jAtor"), q.anim);
+    }, 450);
+  $("arena").focus({ preventScroll: true });
+  clearInterval(jogo.rel);
+  jogo.fim = Date.now() + TEMPO * 1000;
+  jogo.rest = TEMPO;
+  $("jTempo").style.width = "100%";
+  $("jTempo").classList.remove("urgente");
+  jogo.rel = setInterval(() => {
+    jogo.rest = Math.max(0, (jogo.fim - Date.now()) / 1000);
+    $("jTempo").style.width = (jogo.rest / TEMPO) * 100 + "%";
+    $("jTempo").classList.toggle("urgente", jogo.rest < 5);
+    if (jogo.rest <= 0) responder(-1);
+  }, 100);
+}
+function responder(k) {
+  if (!jogo || jogo.resp) return;
+  const q = jogo.lista[jogo.i],
+    btns = [...$("jOpc").children];
+  if (k >= btns.length) return;
+  jogo.resp = true;
+  clearInterval(jogo.rel);
+  const certaK = q.opcoes.indexOf(q.certa);
+  btns.forEach((b, i) => {
+    b.disabled = true;
+    if (i === certaK) b.classList.add("certa");
+    else if (i === k) b.classList.add("errada");
+  });
+  let fb;
+  if (k === certaK) {
+    jogo.seq++;
+    jogo.acertos++;
+    const pts =
+      100 +
+      Math.round(jogo.rest) * 5 +
+      (jogo.seq > 1 ? (jogo.seq - 1) * 25 : 0);
+    jogo.pts += pts;
+    fb = `<b class="ok">Certo! +${pts} pontos.</b> ${q.e}`;
+    animar(btns[k], "pulse");
+    animar($("jSeqPill"), "heartBeat");
+  } else {
+    jogo.seq = 0;
+    fb =
+      (k === -1
+        ? `<b class="no">Tempo esgotado.</b> `
+        : `<b class="no">Quase!</b> `) + q.e;
+    if (k >= 0) animar(btns[k], "shakeX");
+    animar(btns[certaK], "pulse");
+  }
+  $("jPts").textContent = jogo.pts;
+  $("jSeq").textContent = jogo.seq;
+  $("jFb").innerHTML = fb;
+  const ultima = jogo.i === jogo.lista.length - 1;
+  $("jProx").textContent = ultima ? "Ver resultado" : "Próxima";
+  $("jProx").hidden = false;
+  $("jProx").focus({ preventScroll: true });
+}
+function proxima() {
+  if (jogo.i < jogo.lista.length - 1) {
+    jogo.i++;
+    mostrarPerg();
+  } else fimJogo();
+}
+function fimJogo() {
+  const n = jogo.lista.length,
+    a = jogo.acertos,
+    r = a / n;
+  const rank =
+    r === 1
+      ? "Mestre do palco!"
+      : r >= 0.75
+        ? "Estrela da cena"
+        : r >= 0.5
+          ? "Coadjuvante em ascensão"
+          : "Figurante curioso";
+  const antigo = recorde(),
+    novo = jogo.pts > antigo;
+  if (novo) salvarRecorde(jogo.pts);
+  $("jRank").textContent = rank;
+  $("jRes").textContent = `Você acertou ${a} de ${n} e fez ${jogo.pts} pontos.`;
+  $("jRecFim").textContent = novo ? "Novo recorde!" : textoRecorde();
+  mostrarTela("telaFim");
+  animar($("trofeu"), novo || r >= 0.75 ? "tada" : "bounceIn");
+  $("jIniciar").textContent = "Jogar de novo";
+  $("jRecIni").textContent = textoRecorde();
+}
+$("jIniciar").onclick = iniciar;
+$("jDeNovo").onclick = iniciar;
+$("jProx").onclick = proxima;
+$("jRepetir").onclick = () => {
+  const q = jogo && jogo.lista[jogo.i];
+  if (q && q.anim) animar($("jAtor"), q.anim);
+};
+$("jOpc").addEventListener("click", (e) => {
+  const b = e.target.closest("[data-k]");
+  if (b) responder(+b.dataset.k);
+});
+$("arena").addEventListener("keydown", (e) => {
+  if ($("telaJogo").hidden || !/^[1-4]$/.test(e.key)) return;
+  responder(+e.key - 1);
+});
+$("jRecIni").textContent = textoRecorde();
+atualizarNota();

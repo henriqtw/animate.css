@@ -7,6 +7,11 @@
   <title>animate.css - o palco das animações</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;600&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -23,6 +28,7 @@
           <li><a href="#usar">Como usar</a></li>
           <li><a href="#passo">Passo a passo</a></li>
           <li><a href="#demo">Demo</a></li>
+          <li><a href="#jogo">Jogo</a></li>
         </ul>
       </div>
     </nav>
@@ -32,7 +38,7 @@
         elemento entra em cena.</p>
       <a class="btn" href="#laboratorio">Subir ao palco</a>
       <a class="btn sec" href="#passo">Ver passo a passo</a>
-      <p class="dica dicaTitulo">Dica: clique no título para ele fazer uma entrada diferente.</p>
+      <p class="dica" style="margin-top:26px">Dica: clique no título para ele fazer uma entrada diferente.</p>
     </div>
   </header>
 
@@ -128,7 +134,7 @@ el.addEventListener(
           <p class="explica" id="tTexto"></p>
           <pre id="tCodigo"></pre>
           <div class="navegar">
-            <button class="btn sec" id="ant">Anterior</button>
+            <button class="btn sec" id="ant" style="margin:0">Anterior</button>
             <button class="btn" id="prox">Próxima etapa</button>
           </div>
         </div>
@@ -156,20 +162,56 @@ el.addEventListener(
             <button class="btn" type="submit">Entrar</button>
           </form>
           <div class="bemvindo" id="bemvindo" hidden>
-            <div class="big" id="bvEmoji">🎉</div>
-            <h3>Login feito!</h3>
-            <p>Erro: <code>shakeX</code> + <code>headShake</code>. Sucesso: <code>fadeOutUp</code>, <code>zoomIn</code>
-              e <code>tada</code>.</p>
+            <div class="big" id="bvEmoji"><svg viewBox="0 0 64 64" width="84" height="84" aria-hidden="true">
+                <defs>
+                  <linearGradient id="gOk" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#35D0BA" />
+                    <stop offset="1" stop-color="#1fa391" />
+                  </linearGradient>
+                </defs>
+                <circle cx="32" cy="34" r="20" fill="url(#gOk)" />
+                <path d="M22 35l7 7 14-15" fill="none" stroke="#1B0F33" stroke-width="5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <circle cx="10" cy="16" r="3" fill="#FFC857" />
+                <circle cx="54" cy="12" r="2.5" fill="#FF3D7F" />
+                <rect x="48" y="50" width="6" height="6" rx="1.5" fill="#FFC857" transform="rotate(20 51 53)" />
+                <rect x="8" y="46" width="6" height="6" rx="1.5" fill="#FF3D7F" transform="rotate(-18 11 49)" />
+                <path d="M30 6v6M27 9h6" stroke="#F5EEFF" stroke-width="2.5" stroke-linecap="round" />
+              </svg></div>
+            <h3 style="font:800 1.6rem var(--display)">Login feito!</h3>
+            <p style="margin:6px 0 16px;opacity:.8">Erro: <code>shakeX</code> + <code>headShake</code>. Sucesso:
+              <code>fadeOutUp</code>, <code>zoomIn</code> e <code>tada</code>.
+            </p>
             <button class="btn" id="sair">Sair</button>
           </div>
         </div>
         <div class="mini">
-          <div class="moldura"><button class="curtir" id="curtir" aria-label="Curtir">❤️<span class="n"
-                id="nCurtir">0</span></button>
+          <div class="moldura"><button class="curtir" id="curtir" aria-label="Curtir"><svg viewBox="0 0 24 24"
+                aria-hidden="true">
+                <defs>
+                  <linearGradient id="gHeart" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#FF6FA0" />
+                    <stop offset="1" stop-color="#FF3D7F" />
+                  </linearGradient>
+                </defs>
+                <path fill="url(#gHeart)"
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                <path fill="#fff" fill-opacity=".45"
+                  d="M6.5 6.2c-1.3.3-2.2 1.5-2.2 2.9 0 .5.4.8.8.6.3-.2.4-.5.4-.9 0-.9.5-1.7 1.3-2 .4-.2.4-.7-.3-.6z" />
+              </svg><span class="n" id="nCurtir">0</span></button>
             <p>Botão de curtir com <code>heartBeat</code> a cada clique.</p>
           </div>
-          <div class="moldura"><button class="sino" id="sino" aria-label="Notificações">🔔<span class="badge"
-                id="badge">1</span></button>
+          <div class="moldura"><button class="sino" id="sino" aria-label="Notificações"><svg viewBox="0 0 24 24"
+                aria-hidden="true">
+                <defs>
+                  <linearGradient id="gBell" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#FFD97D" />
+                    <stop offset="1" stop-color="#FFC857" />
+                  </linearGradient>
+                </defs>
+                <path fill="url(#gBell)"
+                  d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+              </svg><span class="badge" id="badge">1</span></button>
             <p>Notificação: o sino balança (<code>swing</code>) e o contador surge (<code>bounceIn</code>).</p>
           </div>
         </div>
@@ -181,13 +223,14 @@ el.addEventListener(
     <div class="wrap avisos">
       <div>
         <h2>Na prática: avisos na tela</h2>
-        <p class="sub subCompacto">Um uso real: cada aviso entra com <code>backInRight</code> e sai com
+        <p class="sub" style="margin-bottom:0">Um uso real: cada aviso entra com <code>backInRight</code> e sai com
           <code>backOutRight</code>. O JavaScript espera o evento <code>animationend</code> antes de remover o elemento
-          do HTML.</p>
+          do HTML.
+        </p>
         <div class="botoes">
           <button class="btn" data-t="ok">Sucesso</button>
-          <button class="btn botaoAviso" data-t="aviso">Atenção</button>
-          <button class="btn botaoErro" data-t="erro">Erro</button>
+          <button class="btn" data-t="aviso" style="background:var(--agua)">Atenção</button>
+          <button class="btn" data-t="erro" style="background:var(--cortina);color:#fff">Erro</button>
         </div>
       </div>
       <div class="pilha" id="pilha">
@@ -195,6 +238,68 @@ el.addEventListener(
       </div>
     </div>
   </section>
+
+  <section class="jogo" id="jogo">
+    <div class="wrap">
+      <h2>Mini jogo: você manda no palco?</h2>
+      <p class="sub">Teste o que aprendeu. Adivinhe animações em ação e responda perguntas sobre o animate.css. Quanto
+        mais rápido e mais seguido você acerta, mais pontos ganha.</p>
+      <div class="arena" id="arena" tabindex="-1">
+        <div class="tela" id="telaIni">
+          <div class="jicone"><svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#FFC857" d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6L12 2z" />
+            </svg></div>
+          <h3>Pronto para entrar em cena?</h3>
+          <p>8 perguntas, 15 segundos cada. Dica: use as teclas 1 a 4 para responder.</p>
+          <p class="nota" id="jNota" hidden>Seu sistema está com movimento reduzido, então o jogo terá só perguntas de
+            texto. Ative as animações no aviso da página para jogar a versão completa.</p>
+          <p class="recorde" id="jRecIni"></p>
+          <div><button class="btn" id="jIniciar" type="button">Começar o jogo</button></div>
+        </div>
+
+        <div class="tela" id="telaJogo" hidden>
+          <div class="hud">
+            <span class="pill">Pergunta <b id="jN">1</b>/8</span>
+            <span class="pill">Pontos <b id="jPts">0</b></span>
+            <span class="pill" id="jSeqPill">Sequência <b id="jSeq">0</b></span>
+          </div>
+          <div class="tempo" aria-hidden="true"><i id="jTempo"></i></div>
+          <div class="quadro" id="jQuadro">
+            <div class="jpalco" id="jPalco" hidden>
+              <div class="jator" id="jAtor"><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#FFC857" d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6L12 2z" />
+                </svg></div>
+              <button class="btn" id="jRepetir" type="button">Ver de novo</button>
+            </div>
+            <h3 id="jPerg"></h3>
+            <div class="opcoes" id="jOpc"></div>
+          </div>
+          <p class="fb" id="jFb" role="status"></p>
+          <div><button class="btn" id="jProx" type="button" hidden>Próxima</button></div>
+        </div>
+
+        <div class="tela fim" id="telaFim" hidden>
+          <div class="trofeu" id="trofeu"><svg viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M18 12H8c0 8 4 13 11 14M46 12h10c0 8-4 13-11 14" fill="none" stroke="#FFC857" stroke-width="4"
+                stroke-linecap="round" />
+              <path d="M18 8h28v14c0 8-6 14-14 14S18 30 18 22V8z" fill="#FFC857" />
+              <path d="M23 12v10c0 4 2 7 5 8" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="3"
+                stroke-linecap="round" />
+              <rect x="28" y="36" width="8" height="10" fill="#E6A82E" />
+              <rect x="20" y="46" width="24" height="8" rx="3" fill="#FF3D7F" />
+            </svg></div>
+          <h3 id="jRank"></h3>
+          <p id="jRes"></p>
+          <p class="recorde" id="jRecFim"></p>
+          <div class="fimbtn">
+            <button class="btn" id="jDeNovo" type="button">Jogar de novo</button>
+            <a class="btn sec" href="#laboratorio">Praticar no laboratório</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <div class="aviso" id="aviso" role="status" hidden><span id="avisoTxt"></span><button class="btn" id="avisoBtn"
       type="button">Ativar animações</button></div>
   <script src="script.js"></script>
