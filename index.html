@@ -1,170 +1,203 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>animate.css — o palco das animações</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>animate.css - o palco das animações</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header class="hero" id="topo">
-  <div class="cortina e"></div><div class="cortina d"></div>
-  <nav><div class="wrap">
-    <ul><li><a href="#laboratorio">Laboratório</a></li><li><a href="#usar">Como usar</a></li><li><a href="#passo">Passo a passo</a></li><li><a href="#demo">Demo</a></li></ul>
-  </div></nav>
-  <div class="wrap">
-    <h1 class="titulo" id="titulo" aria-label="animate.css" title="Clique para repetir"></h1>
-    <p class="lead">Uma biblioteca com mais de 80 animações prontas. Você escolhe o nome, adiciona uma classe e o elemento entra em cena.</p>
-    <a class="btn" href="#laboratorio">Subir ao palco</a>
-    <a class="btn sec" href="#passo">Ver passo a passo</a>
-    <p class="dica" style="margin-top:26px">Dica: clique no título para ele fazer uma entrada diferente.</p>
-  </div>
-</header>
-
-<section id="laboratorio">
-  <div class="wrap">
-    <h2>Laboratório de animações</h2>
-    <p class="sub">Escolha uma animação, ajuste duração, atraso e repetições. O código no final se atualiza e já pode ser copiado.</p>
-    <div class="lab">
-      <div>
-        <div class="abas" role="tablist" id="abas"></div>
-        <div class="chips" id="chips"></div>
-        <div class="ctrl">
-          <div><label for="dur">Duração: <output id="durO">1s</output></label>
-            <input type="range" id="dur" min="0.2" max="4" step="0.1" value="1"></div>
-          <div><label for="del">Atraso: <output id="delO">0s</output></label>
-            <input type="range" id="del" min="0" max="3" step="0.1" value="0"></div>
-          <div><label for="rep">Repetir</label>
-            <select id="rep"><option value="1">1 vez</option><option value="2">2 vezes</option><option value="3">3 vezes</option><option value="infinite">Infinito</option></select></div>
-        </div>
+  <header class="hero" id="topo">
+    <div class="cortina e"></div>
+    <div class="cortina d"></div>
+    <nav>
+      <div class="wrap">
+        <ul>
+          <li><a href="#laboratorio">Laboratório</a></li>
+          <li><a href="#usar">Como usar</a></li>
+          <li><a href="#passo">Passo a passo</a></li>
+          <li><a href="#demo">Demo</a></li>
+        </ul>
       </div>
-      <div class="palco">
-        <div class="cena" id="cena">
-          <span class="nome-anim" id="nomeAnim">bounce</span>
-          <div class="tocar"><button class="btn" id="tocar">▶ Tocar de novo</button></div>
-          <div class="ator" id="ator" aria-hidden="true">🎬</div>
+    </nav>
+    <div class="wrap">
+      <h1 class="titulo" id="titulo" aria-label="animate.css" title="Clique para repetir"></h1>
+      <p class="lead">Uma biblioteca com mais de 80 animações prontas. Você escolhe o nome, adiciona uma classe e o
+        elemento entra em cena.</p>
+      <a class="btn" href="#laboratorio">Subir ao palco</a>
+      <a class="btn sec" href="#passo">Ver passo a passo</a>
+      <p class="dica dicaTitulo">Dica: clique no título para ele fazer uma entrada diferente.</p>
+    </div>
+  </header>
+
+  <section id="laboratorio">
+    <div class="wrap">
+      <h2>Laboratório de animações</h2>
+      <p class="sub">Escolha uma animação, ajuste duração, atraso e repetições. O código no final se atualiza e já pode
+        ser copiado.</p>
+      <div class="lab">
+        <div>
+          <div class="abas" role="tablist" id="abas"></div>
+          <div class="chips" id="chips"></div>
+          <div class="ctrl">
+            <div><label for="dur">Duração: <output id="durO">1s</output></label>
+              <input type="range" id="dur" min="0.2" max="4" step="0.1" value="1">
+            </div>
+            <div><label for="del">Atraso: <output id="delO">0s</output></label>
+              <input type="range" id="del" min="0" max="3" step="0.1" value="0">
+            </div>
+            <div><label for="rep">Repetir</label>
+              <select id="rep">
+                <option value="1">1 vez</option>
+                <option value="2">2 vezes</option>
+                <option value="3">3 vezes</option>
+                <option value="infinite">Infinito</option>
+              </select>
+            </div>
+          </div>
         </div>
-        <pre id="codigo"></pre>
+        <div class="palco">
+          <div class="cena" id="cena">
+            <span class="nome-anim" id="nomeAnim">bounce</span>
+            <div class="tocar"><button class="btn" id="tocar">▶ Tocar de novo</button></div>
+            <div class="ator" id="ator" aria-hidden="true">🎬</div>
+          </div>
+          <pre id="codigo"></pre>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="claro" id="usar">
-  <div class="wrap">
-    <h2>Três passos, zero instalação</h2>
-    <p class="sub">Nada de npm ou arquivos locais. A biblioteca vem de uma CDN, só um link no &lt;head&gt;.</p>
-    <div class="passos">
-      <div class="passo"><h3>Importe</h3><p>Cole o link da CDN no seu HTML.</p>
-        <pre id="p1">&lt;link rel="stylesheet"
+  <section class="claro" id="usar">
+    <div class="wrap">
+      <h2>Três passos, zero instalação</h2>
+      <p class="sub">Nada de npm ou arquivos locais. A biblioteca vem de uma CDN, só um link no &lt;head&gt;.</p>
+      <div class="passos">
+        <div class="passo">
+          <h3>Importe</h3>
+          <p>Cole o link da CDN no seu HTML.</p>
+          <pre id="p1">&lt;link rel="stylesheet"
  href="https://cdnjs.cloudflare.com/
  ajax/libs/animate.css/4.1.1/
- animate.min.css"&gt;</pre></div>
-      <div class="passo"><h3>Escolha a classe</h3><p>Sempre as duas juntas: a base e o nome da animação.</p>
-        <pre>&lt;h1 class="animate__animated
+ animate.min.css"&gt;</pre>
+        </div>
+        <div class="passo">
+          <h3>Escolha a classe</h3>
+          <p>Sempre as duas juntas: a base e o nome da animação.</p>
+          <pre>&lt;h1 class="animate__animated
  animate__bounce"&gt;
   Olá!
-&lt;/h1&gt;</pre></div>
-      <div class="passo"><h3>Dispare com JS</h3><p>Adicione a classe quando quiser e remova ao terminar.</p>
-        <pre>el.classList.add(
+&lt;/h1&gt;</pre>
+        </div>
+        <div class="passo">
+          <h3>Dispare com JS</h3>
+          <p>Adicione a classe quando quiser e remova ao terminar.</p>
+          <pre>el.classList.add(
  'animate__animated',
  'animate__tada');
 el.addEventListener(
  'animationend',
  () =&gt; el.classList.remove(
   'animate__animated',
-  'animate__tada'));</pre></div>
+  'animate__tada'));</pre>
+        </div>
+      </div>
+      <div class="regras">
+        <p>Classes extras que você pode misturar:</p>
+        <code>animate__delay-2s</code><code>animate__slow</code><code>animate__faster</code>
+        <code>animate__infinite</code><code>animate__repeat-3</code><code>--animate-duration</code>
+      </div>
     </div>
-    <div class="regras">
-      <p>Classes extras que você pode misturar:</p>
-      <code>animate__delay-2s</code><code>animate__slow</code><code>animate__faster</code>
-      <code>animate__infinite</code><code>animate__repeat-3</code><code>--animate-duration</code>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="passo">
-  <div class="wrap">
-    <h2>Passo a passo ao vivo</h2>
-    <p class="sub">Construa uma animação do zero em 6 etapas. As linhas em destaque são o que mudou, e o resultado ao lado roda exatamente o código mostrado.</p>
-    <div class="trilha" id="trilha" role="tablist"></div>
-    <div class="tutorial">
+  <section id="passo">
+    <div class="wrap">
+      <h2>Passo a passo ao vivo</h2>
+      <p class="sub">Construa uma animação do zero em 6 etapas. As linhas em destaque são o que mudou, e o resultado ao
+        lado roda exatamente o código mostrado.</p>
+      <div class="trilha" id="trilha" role="tablist"></div>
+      <div class="tutorial">
+        <div>
+          <h3 id="tTitulo"></h3>
+          <p class="explica" id="tTexto"></p>
+          <pre id="tCodigo"></pre>
+          <div class="navegar">
+            <button class="btn sec" id="ant">Anterior</button>
+            <button class="btn" id="prox">Próxima etapa</button>
+          </div>
+        </div>
+        <div class="visor">
+          <header><span>resultado no navegador</span><button id="rodar">▶ Rodar de novo</button></header>
+          <iframe id="previa" title="Prévia do código"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo" id="demo">
+    <div class="wrap">
+      <h2>Demonstração prática</h2>
+      <p class="sub">Animação não é só enfeite. Ela mostra ao usuário o que aconteceu. Teste um formulário de verdade:
+        envie vazio e depois preencha.</p>
+      <div class="demos">
+        <div class="moldura">
+          <span class="rot">formulário de login</span>
+          <form class="login" id="login" novalidate>
+            <h3>Entrar</h3>
+            <input id="em" type="email" placeholder="seu@email.com" aria-label="E-mail">
+            <input id="sn" type="password" placeholder="senha (mínimo 4 letras)" aria-label="Senha">
+            <small id="msg" role="alert"></small>
+            <button class="btn" type="submit">Entrar</button>
+          </form>
+          <div class="bemvindo" id="bemvindo" hidden>
+            <div class="big" id="bvEmoji">🎉</div>
+            <h3>Login feito!</h3>
+            <p>Erro: <code>shakeX</code> + <code>headShake</code>. Sucesso: <code>fadeOutUp</code>, <code>zoomIn</code>
+              e <code>tada</code>.</p>
+            <button class="btn" id="sair">Sair</button>
+          </div>
+        </div>
+        <div class="mini">
+          <div class="moldura"><button class="curtir" id="curtir" aria-label="Curtir">❤️<span class="n"
+                id="nCurtir">0</span></button>
+            <p>Botão de curtir com <code>heartBeat</code> a cada clique.</p>
+          </div>
+          <div class="moldura"><button class="sino" id="sino" aria-label="Notificações">🔔<span class="badge"
+                id="badge">1</span></button>
+            <p>Notificação: o sino balança (<code>swing</code>) e o contador surge (<code>bounceIn</code>).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="avisos">
+    <div class="wrap avisos">
       <div>
-        <h3 id="tTitulo"></h3>
-        <p class="explica" id="tTexto"></p>
-        <pre id="tCodigo"></pre>
-        <div class="navegar">
-          <button class="btn sec" id="ant" style="margin:0">Anterior</button>
-          <button class="btn" id="prox">Próxima etapa</button>
+        <h2>Na prática: avisos na tela</h2>
+        <p class="sub subCompacto">Um uso real: cada aviso entra com <code>backInRight</code> e sai com
+          <code>backOutRight</code>. O JavaScript espera o evento <code>animationend</code> antes de remover o elemento
+          do HTML.</p>
+        <div class="botoes">
+          <button class="btn" data-t="ok">Sucesso</button>
+          <button class="btn botaoAviso" data-t="aviso">Atenção</button>
+          <button class="btn botaoErro" data-t="erro">Erro</button>
         </div>
       </div>
-      <div class="visor">
-        <header><span>resultado no navegador</span><button id="rodar">▶ Rodar de novo</button></header>
-        <iframe id="previa" title="Prévia do código"></iframe>
+      <div class="pilha" id="pilha">
+        <div class="vazio" id="vazio">Clique em um botão para disparar um aviso.</div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="demo" id="demo">
-  <div class="wrap">
-    <h2>Demonstração prática</h2>
-    <p class="sub">Animação não é só enfeite. Ela mostra ao usuário o que aconteceu. Teste um formulário de verdade: envie vazio e depois preencha.</p>
-    <div class="demos">
-      <div class="moldura">
-        <span class="rot">formulário de login</span>
-        <form class="login" id="login" novalidate>
-          <h3>Entrar</h3>
-          <input id="em" type="email" placeholder="seu@email.com" aria-label="E-mail">
-          <input id="sn" type="password" placeholder="senha (mínimo 4 letras)" aria-label="Senha">
-          <small id="msg" role="alert"></small>
-          <button class="btn" type="submit">Entrar</button>
-        </form>
-        <div class="bemvindo" id="bemvindo" hidden>
-          <div class="big" id="bvEmoji">🎉</div>
-          <h3 style="font:800 1.6rem var(--display)">Login feito!</h3>
-          <p style="margin:6px 0 16px;opacity:.8">Erro: <code>shakeX</code> + <code>headShake</code>. Sucesso: <code>fadeOutUp</code>, <code>zoomIn</code> e <code>tada</code>.</p>
-          <button class="btn" id="sair">Sair</button>
-        </div>
-      </div>
-      <div class="mini">
-        <div class="moldura"><button class="curtir" id="curtir" aria-label="Curtir">❤️<span class="n" id="nCurtir">0</span></button>
-          <p>Botão de curtir com <code>heartBeat</code> a cada clique.</p></div>
-        <div class="moldura"><button class="sino" id="sino" aria-label="Notificações">🔔<span class="badge" id="badge">1</span></button>
-          <p>Notificação: o sino balança (<code>swing</code>) e o contador surge (<code>bounceIn</code>).</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="avisos">
-  <div class="wrap avisos">
-    <div>
-      <h2>Na prática: avisos na tela</h2>
-      <p class="sub" style="margin-bottom:0">Um uso real: cada aviso entra com <code>backInRight</code> e sai com <code>backOutRight</code>. O JavaScript espera o evento <code>animationend</code> antes de remover o elemento do HTML.</p>
-      <div class="botoes">
-        <button class="btn" data-t="ok">Sucesso</button>
-        <button class="btn" data-t="aviso" style="background:var(--agua)">Atenção</button>
-        <button class="btn" data-t="erro" style="background:var(--cortina);color:#fff">Erro</button>
-      </div>
-    </div>
-    <div class="pilha" id="pilha"><div class="vazio" id="vazio">Clique em um botão para disparar um aviso.</div></div>
-  </div>
-</section>
-
-<footer>
-  <p>Trabalho sobre <strong>animate.css v4.1.1</strong></p>
-  <p style="margin-top:8px">Grupo 3 · <span class="animate__animated animate__heartBeat animate__infinite animate__slower">Desenvolvimento de Sistemas | SENAI</span>.</p>
-</footer>
-
-<div class="aviso" id="aviso" role="status" hidden><span id="avisoTxt"></span><button class="btn" id="avisoBtn" type="button">Ativar animações</button></div>
-<script src="script.js"></script>
+  </section>
+  <div class="aviso" id="aviso" role="status" hidden><span id="avisoTxt"></span><button class="btn" id="avisoBtn"
+      type="button">Ativar animações</button></div>
+  <script src="script.js"></script>
 </body>
+
 </html>
